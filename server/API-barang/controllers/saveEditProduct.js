@@ -8,7 +8,7 @@ const saveEditProduct = async (req, res) => {
   try {
     const updatedProduct = await Product.findOneAndUpdate(
       { _id: id },
-      { name, size, quantity, price },
+      { name, size, price },
       { new: true } // Make sure to include this option to get the updated document
     );
 
