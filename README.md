@@ -11,15 +11,15 @@
 
 ### Endpoints
 
-- GET `/product`: Retrieve a list of all products.
-- GET `/product/:id`: Retrieve information about a specific product by its ID.
-- POST `/product`: Add a new product.
-- POST `/product/edit/:id`: Edit an existing product by its ID.
-- DELETE `/product/delete/:id`: Delete a product by its ID.
+- GET `/api/product`: Retrieve a list of all products.
+- GET `/api/product/:id`: Retrieve information about a specific product by its ID.
+- POST `/api/product`: Add a new product.
+- POST `/api/product/edit/:id`: Edit an existing product by its ID.
+- DELETE `/api/product/delete/:id`: Delete a product by its ID.
 
 ### Adding a New Product
 
-To add a new product, send a POST request to `/product` with the following JSON data:
+To add a new product, send a POST request to `/api/product` with the following JSON data:
 
 ```json
 {
@@ -36,7 +36,7 @@ To add a new product, send a POST request to `/product` with the following JSON 
 
 ### Editing a Product
 
-To edit an existing product, send a POST request to `/product/edit/:id` with the following JSON data:
+To edit an existing product, send a POST request to `/api/product/edit/:id` with the following JSON data:
 
 ```json
 {
@@ -52,11 +52,11 @@ To edit an existing product, send a POST request to `/product/edit/:id` with the
 
 ### Deleting a Product
 
-To delete a product, send a DELETE request to `/product/delete/:id`.
+To delete a product, send a DELETE request to `/api/product/delete/:id`.
 
 ### Viewing Product Information
 
-To view information about a specific product, send a GET request to `/product/:id`.
+To view information about a specific product, send a GET request to `/api/product/:id`.
 
 ## File Uploads
 
