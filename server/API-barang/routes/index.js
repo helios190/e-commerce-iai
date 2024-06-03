@@ -18,6 +18,7 @@ router.delete("/product/delete/:id", deleteProduct);
 const addtoCart = require("../controllers/addCart.js")
 const readCart = require("../controllers/getCart.js")
 const updateCart = require("../controllers/updateamountCart.js")
+const deleteCart = require("../controllers/deleteItemCart.js")
 
 router.post("/cart",addtoCart);
 router.get("/cart/:userId",readCart);
