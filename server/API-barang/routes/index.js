@@ -23,6 +23,7 @@ const deleteCart = require("../controllers/deleteItemCart.js")
 router.post("/cart",addtoCart);
 router.get("/cart/:userId",readCart);
 router.put("/cart",updateCart);
+router.delete("/cart",deleteCart);
 
 
 
