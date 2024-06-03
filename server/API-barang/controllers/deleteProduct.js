@@ -13,7 +13,7 @@ const deleteProduct = async (req, res) => {
     }
 
     // Delete the product image from the file system
-    fs.unlinkSync(`./uploads/${product.image}`);
+    fs.unlinkSync(`./assets/${product.image}`);
 
     // Delete the product from the database
     await product.remove();

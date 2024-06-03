@@ -11,9 +11,8 @@ const displayProductInfo = async (req, res) => {
 
     const productInfo = {
       id: product._id,
-      title: product.title,
-      description: product.description,
-      quantity: product.quantity,
+      name: product.name,
+      size: product.size,
       price: product.price,
       image: product.image
     };

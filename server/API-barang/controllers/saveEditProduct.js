@@ -2,14 +2,13 @@ const Product = require("../models/barangDB.js");
 
 const saveEditProduct = async (req, res) => {
   const id = req.params.id || req.query.id;
-  const title = req.body.title;
-  const description = req.body.description;
-  const quantity = req.body.quantity;
+  const name = req.body.name;
+  const size = req.body.size;
   const price = req.body.price;
   try {
     const updatedProduct = await Product.findOneAndUpdate(
       { _id: id },
-      { title, description, quantity, price },
+      { name, size, quantity, price },
       { new: true } // Make sure to include this option to get the updated document
     );
 

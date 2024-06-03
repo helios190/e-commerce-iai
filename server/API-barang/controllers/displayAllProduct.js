@@ -7,9 +7,8 @@ const displayAllProducts = async (req, res) => {
     let results = products.map((each) => {
       return {
         id: each._id,
-        title: each.title,
-        description: each.description,
-        quantity: each.quantity,
+        name: each.name,
+        size: each.size,
         price: each.price,
         image:each.image,
       };

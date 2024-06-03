@@ -2,11 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 const path = require('path');
-const cors = require('cors');
 dotenv.config();
 const app = express();
 
-app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 const dbUrl ="mongodb+srv://bintangrestub:ZQbRY9ruiQ1KXEPC@cluster0.ghm6lt6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
