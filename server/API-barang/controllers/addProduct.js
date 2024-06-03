@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Ensure the upload directory exists
-const uploadDir = 'assets';
+const uploadDir = '/tmp/assets';
 if (!fs.existsSync(uploadDir)){
   fs.mkdirSync(uploadDir);
 }
@@ -42,7 +42,7 @@ const createNewProduct = async (req, res) => {
       size,
       price,
       // Store the generated filename
-      image: `./assets/${req.file.originalname}`
+      image: `./tmp/assets/${req.file.originalname}`
     });
 
     try {
