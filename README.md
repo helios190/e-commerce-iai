@@ -3,8 +3,6 @@ Here's a README.md file explaining how to use your product management API:
 
 ---
 
-# Product Management API
-
 This API allows you to manage products, including adding, editing, deleting, and viewing product information.
 
 ## Installation
