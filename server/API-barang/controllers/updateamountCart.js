@@ -8,7 +8,6 @@ const updateCartQuantity = async (req, res) => {
   }
 
   try {
-    // Find the cart item by userId, name, and size
     const cartItem = await Cart.findOne({ userId, name, size });
 
     if (!cartItem) {

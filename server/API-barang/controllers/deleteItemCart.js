@@ -8,7 +8,6 @@ const deleteProductFromCart = async (req, res) => {
   }
 
   try {
-    // Delete all cart items with the given product name for the user
     await Cart.deleteMany({ userId, name });
     return res.json({ message: 'All cart items with the specified product name deleted successfully' });
   } catch (error) {

@@ -8,7 +8,6 @@ const getCartByUserId = async (req, res) => {
   }
 
   try {
-    // Find cart items by userId
     const cartItems = await Cart.find({ userId });
 
     if (!cartItems.length) {

@@ -9,11 +9,10 @@ const saveEditProduct = async (req, res) => {
     const updatedProduct = await Product.findOneAndUpdate(
       { _id: id },
       { name, size, price },
-      { new: true } // Make sure to include this option to get the updated document
+      { new: true } 
     );
 
     if (!updatedProduct) {
-      // If no document was found with the given id
       return res.status(404).json({ error: "Product not found" });
     }
 
