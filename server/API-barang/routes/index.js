@@ -16,7 +16,10 @@ router.delete("/product/delete/:id", deleteProduct);
 
 //cart
 const addtoCart = require("../controllers/addCart.js")
+const readCart = require("../controllers/getCart.js")
+
 router.post("/cart",addtoCart);
+router.get("/cart/:userId",readCart)
 
 
 
