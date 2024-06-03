@@ -12,8 +12,11 @@ const deleteProduct = async (req, res) => {
       return res.status(404).json({ error: 'Product not found' });
     }
 
+    // Delete the product image from the file system
+    fs.unlinkSync(`./uploads/${product.image}`);
+
     // Delete the product from the database
-    await Product.deleteOne({ _id: productId });
+    await product.remove();
 
     res.json("Product deleted successfully!");
   } catch (error) {

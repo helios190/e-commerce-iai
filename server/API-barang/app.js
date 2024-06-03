@@ -1,21 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
-const http = require('http');
-const { BlobServiceClient } = require('@azure/storage-blob');
+const path = require('path');
 dotenv.config();
-// const session = require("express-session");
-
-
-const sasToken = process.env.BLOB_SAS_TOKEN;
-const credentials = require("./credentials.js");
 const app = express();
 
-
-const accountName = 'iaiblobdb'
-const containerName = 'iai-blob-ecom'
-const blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.core.windows.net/?${sasToken}`);
-const containerClient = blobServiceClient.getContainerClient(containerName);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 const dbUrl ="mongodb+srv://bintangrestub:ZQbRY9ruiQ1KXEPC@cluster0.ghm6lt6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose

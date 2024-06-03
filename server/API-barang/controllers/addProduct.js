@@ -1,21 +1,27 @@
 const Product = require("../models/barangDB.js");
 const multer = require('multer');
 const path = require('path');
-const { GridFsStorage } = require("multer-gridfs-storage")
 const fs = require('fs');
 
-const url ='mongodb+srv://bintangrestub:ZQbRY9ruiQ1KXEPC@cluster0.ghm6lt6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+// Ensure the upload directory exists
+const uploadDir = 'uploads';
+if (!fs.existsSync(uploadDir)){
+  fs.mkdirSync(uploadDir);
+}
 
-
+// Set up multer for file upload
 const storage = multer.diskStorage({
-  destination: "./uploads",
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + "_" + uniqueSuffix + "_" + file.originalname);
+  destination: (req, file, cb) => {
+    cb(null, uploadDir);
   },
+  filename: (req, file, cb) => {
+    // Generate a unique filename based on timestamp and product title
+    const uniqueFilename = `${Date.now()}-${req.body.title.replace(/\s/g, '_')}${path.extname(file.originalname)}`;
+    cb(null, uniqueFilename);
+  }
 });
-const upload = multer({ storage }).single("image");
 
+const upload = multer({ storage: storage }).single('file');
 
 const createNewProduct = async (req, res) => {
   upload(req, res, async (err) => {
@@ -26,13 +32,19 @@ const createNewProduct = async (req, res) => {
 
     const { title, description, quantity, price } = req.body;
 
+    // Validate required fields
+    if (!title || !description || !quantity || !price) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+
     // Construct the product object
     let newProduct = new Product({
       title,
       description,
       quantity,
       price,
-      image : req.file.filename,
+      // Store the generated filename
+      image: `uploads/${req.file.filename}`
     });
 
     try {
