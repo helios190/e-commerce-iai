@@ -11,7 +11,7 @@ const deleteProduct = require("../controllers/deleteProduct.js");
 router.get("/product", displayAllProducts);
 router.get("/product/:name", displayProductInfo); // Menambahkan rute baru
 router.post("/product", createNewProduct);
-router.post("/product/edit/:id", saveEditProduct);
+router.post("/product/edit/:name", saveEditProduct);
 router.delete("/product/delete/:id", deleteProduct);
 
 //cart
