@@ -9,22 +9,20 @@ const saveEditProduct = require("../controllers/saveEditProduct.js");
 const deleteProduct = require("../controllers/deleteProduct.js");
 
 router.get("/product", displayAllProducts);
-router.get("/product/:id", displayProductInfo);
+router.get("/product/:name", displayProductInfo); // Menambahkan rute baru
 router.post("/product", createNewProduct);
 router.post("/product/edit/:id", saveEditProduct);
 router.delete("/product/delete/:id", deleteProduct);
 
 //cart
-const addtoCart = require("../controllers/addCart.js")
-const readCart = require("../controllers/getCart.js")
-const updateCart = require("../controllers/updateamountCart.js")
-const deleteCart = require("../controllers/deleteItemCart.js")
+const addtoCart = require("../controllers/addCart.js");
+const readCart = require("../controllers/getCart.js");
+const updateCart = require("../controllers/updateamountCart.js");
+const deleteCart = require("../controllers/deleteItemCart.js");
 
-router.post("/cart",addtoCart);
-router.get("/cart/:userId",readCart);
-router.put("/cart",updateCart);
-router.delete("/cart",deleteCart);
-
-
+router.post("/cart", addtoCart);
+router.get("/cart/:userId", readCart);
+router.put("/cart", updateCart);
+router.delete("/cart", deleteCart);
 
 module.exports = router;
